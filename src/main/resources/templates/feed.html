@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <!-- create fragment, sign up button,dont do 5 -->
+    <title>Log In</title>
+    <!-- Style Link -->
+    <div th:replace="fragments/style :: topStyleLinks" ></div>
+    <!-- end -->
+</head>
+
+<body>
+    <div class="container">
+        <h2>Tweets</h2>
+        <div th:each="tweet:${tweetList}">
+            <h5>@<span th:text="${tweet.user.username}"></span>
+            <small><span th:text="${#dates.format(tweet.createdAt, 'M/d/yy')}"></span></small></h5>
+            <p th:utext="${tweet.message}"></p>
+    	</div>
+    </div>
+
+    <!-- Bootstrap Footer Script -->
+    <div th:replace="fragments/style :: bottomJavascript" ></div>
+    <!-- end -->
+</body>
+</body>
+
+</html>
